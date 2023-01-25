@@ -1,28 +1,6 @@
-number_in_menu = 0
-words = ""
-
-
-class Character:
-    hp = 50
-
-    def __init__(self, name):
-        self.name = name
-
-
-class Knight(Character):
-    hp = 125
-    item = ("Sword", "Axe")
-
-
-class Druid(Character):
-    hp = 75
-    item = ("Wand", "Big-Wand")
-
+from character import *
 
 char_name = input("Enter name ")
-
-char_knight = Knight(char_name)
-char_druid = Druid(char_name)
 
 
 def exp():
@@ -33,7 +11,7 @@ def shop():
     print("You want to buy something?")
 
 
-def menu():
+def main():
     print()
     print("Choose what you want to do next")
     print("Go to shop - chose 1")
@@ -55,8 +33,10 @@ user_chose = int(input("Enter a number "))
 
 if user_chose > 0:
     if user_chose == 1:
-        print("You chose a knight")
-        menu()
+        char_knight = Knight(char_name)
+        print("You chose a knight, Hello", char_name)
+        main()
     if user_chose == 2:
-        print("You chose a druid")
-        menu()
+        char_druid = Druid(char_name)
+        print("You chose a druid, Hello", char_name)
+        main()
